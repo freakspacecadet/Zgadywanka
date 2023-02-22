@@ -149,7 +149,12 @@ namespace Licznik
 
         private void buttonHasz_Click(object sender, EventArgs e)
         {
-            int pom = Convert.ToInt32(textBoxLicznik.Text);
+            if (textBoxLicznik.Text == "#ZA MALO#" || textBoxLicznik.Text == "#ZA DUZO#" || textBoxLicznik.Text == "#BRAWO#")
+            {
+                textBoxLicznik.Text = "0";
+            }
+
+             int pom = Convert.ToInt32(textBoxLicznik.Text);
             if (number == pom)
             {
                 textBoxLicznik.Text = "#BRAWO#";
