@@ -21,10 +21,11 @@ namespace Licznik
 
         Random x = new Random();
         int number;
+        int proby;
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBoxLicznik.Text == "0" || textBoxLicznik.Text == "#ZA MALO#" || textBoxLicznik.Text == "#ZA DUZO#")
+            if (textBoxLicznik.Text == "0" || textBoxLicznik.Text.Contains("#"))
             {
                 textBoxLicznik.Text = "1";
             }
@@ -36,7 +37,7 @@ namespace Licznik
 
         private void button0_Click(object sender, EventArgs e)
         {
-            if (textBoxLicznik.Text == "0" || textBoxLicznik.Text == "#ZA MALO#" || textBoxLicznik.Text == "#ZA DUZO#")
+            if (textBoxLicznik.Text == "0" || textBoxLicznik.Text.Contains("#"))
             {
                 textBoxLicznik.Text = "0";
             }
@@ -48,7 +49,7 @@ namespace Licznik
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (textBoxLicznik.Text == "0" || textBoxLicznik.Text == "#ZA MALO#" || textBoxLicznik.Text == "#ZA DUZO#")
+            if (textBoxLicznik.Text == "0" || textBoxLicznik.Text.Contains("#"))
             {
                 textBoxLicznik.Text = "2";
             }
@@ -60,7 +61,7 @@ namespace Licznik
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (textBoxLicznik.Text == "0" || textBoxLicznik.Text == "#ZA MALO#" || textBoxLicznik.Text == "#ZA DUZO#")
+            if (textBoxLicznik.Text == "0" || textBoxLicznik.Text.Contains("#"))
             {
                 textBoxLicznik.Text = "3";
             }
@@ -72,7 +73,7 @@ namespace Licznik
 
         private void button4_Click(object sender, EventArgs e)
         {
-            if (textBoxLicznik.Text == "0" || textBoxLicznik.Text == "#ZA MALO#" || textBoxLicznik.Text == "#ZA DUZO#")
+            if (textBoxLicznik.Text == "0" || textBoxLicznik.Text.Contains("#"))
             {
                 textBoxLicznik.Text = "4";
             }
@@ -84,7 +85,7 @@ namespace Licznik
 
         private void button5_Click(object sender, EventArgs e)
         {
-            if (textBoxLicznik.Text == "0" || textBoxLicznik.Text == "#ZA MALO#" || textBoxLicznik.Text == "#ZA DUZO#")
+            if (textBoxLicznik.Text == "0" || textBoxLicznik.Text.Contains("#"))
             {
                 textBoxLicznik.Text = "5";
             }
@@ -96,7 +97,7 @@ namespace Licznik
 
         private void button6_Click(object sender, EventArgs e)
         {
-            if (textBoxLicznik.Text == "0" || textBoxLicznik.Text == "#ZA MALO#" || textBoxLicznik.Text == "#ZA DUZO#")
+            if (textBoxLicznik.Text == "0" || textBoxLicznik.Text.Contains("#"))
             {
                 textBoxLicznik.Text = "6";
             }
@@ -108,7 +109,7 @@ namespace Licznik
 
         private void button7_Click(object sender, EventArgs e)
         {
-            if (textBoxLicznik.Text == "0" || textBoxLicznik.Text == "#ZA MALO#" || textBoxLicznik.Text == "#ZA DUZO#")
+            if (textBoxLicznik.Text == "0" || textBoxLicznik.Text.Contains("#"))
             {
                 textBoxLicznik.Text = "7";
             }
@@ -120,7 +121,7 @@ namespace Licznik
 
         private void button8_Click(object sender, EventArgs e)
         {
-            if (textBoxLicznik.Text == "0" || textBoxLicznik.Text == "#ZA MALO#" || textBoxLicznik.Text == "#ZA DUZO#")
+            if (textBoxLicznik.Text == "0" || textBoxLicznik.Text.Contains("#"))
             {
                 textBoxLicznik.Text = "8";
             }
@@ -132,7 +133,7 @@ namespace Licznik
 
         private void button9_Click(object sender, EventArgs e)
         {
-            if (textBoxLicznik.Text == "0" || textBoxLicznik.Text == "#ZA MALO#" || textBoxLicznik.Text == "#ZA DUZO#" || textBoxLicznik.Text == "#BRAWO#")
+            if (textBoxLicznik.Text == "0" || textBoxLicznik.Text.Contains("#"))
             {
                 textBoxLicznik.Text = "9";
             }
@@ -145,11 +146,14 @@ namespace Licznik
         private void buttonGwiazdka_Click(object sender, EventArgs e)
         {
             number = x.Next(0, 100);
+            proby = 0;
         }
 
         private void buttonHasz_Click(object sender, EventArgs e)
         {
-            if (textBoxLicznik.Text == "#ZA MALO#" || textBoxLicznik.Text == "#ZA DUZO#" || textBoxLicznik.Text == "#BRAWO#")
+            proby++;
+
+            if (textBoxLicznik.Text.Contains("#"))
             {
                 textBoxLicznik.Text = "0";
             }
@@ -157,7 +161,8 @@ namespace Licznik
              int pom = Convert.ToInt32(textBoxLicznik.Text);
             if (number == pom)
             {
-                textBoxLicznik.Text = "#BRAWO#";
+                textBoxLicznik.Text = "#" + "#BRAWO. Proby: " + Convert.ToString(proby);
+                proby = 0;
                 number = x.Next(0, 100);
             }
             else if (number > pom)
@@ -168,6 +173,11 @@ namespace Licznik
             {
                 textBoxLicznik.Text = "#ZA DUZO#";
             }
+        }
+
+        private void textBoxLicznik_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

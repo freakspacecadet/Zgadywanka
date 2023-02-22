@@ -46,14 +46,15 @@ namespace Licznik
             // 
             // textBoxLicznik
             // 
-            this.textBoxLicznik.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBoxLicznik.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.textBoxLicznik.Location = new System.Drawing.Point(22, 26);
             this.textBoxLicznik.Name = "textBoxLicznik";
             this.textBoxLicznik.ReadOnly = true;
             this.textBoxLicznik.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBoxLicznik.Size = new System.Drawing.Size(223, 38);
+            this.textBoxLicznik.Size = new System.Drawing.Size(223, 30);
             this.textBoxLicznik.TabIndex = 0;
             this.textBoxLicznik.Text = "0";
+            this.textBoxLicznik.TextChanged += new System.EventHandler(this.textBoxLicznik_TextChanged);
             // 
             // button1
             // 
@@ -191,6 +192,7 @@ namespace Licznik
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(269, 450);
             this.Controls.Add(this.buttonHasz);
             this.Controls.Add(this.buttonGwiazdka);
